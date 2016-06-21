@@ -27,8 +27,6 @@
 #include <utility>
 #include <vector>
 
-#define ATD at<double>
-
 #define CIFAR10 0 //CIFAR10 = 1, Classify CIFAR10 test batch || CIFAR10 = 0, Classify individual images
 #define USE_GPU 1 // Use GPU for the first-stage classification
 #define USE_CNN 1 // Use the second-stage classification
@@ -144,7 +142,7 @@ void read_batch(string filename, vector<Mat> &vec, Mat &label){
             }
             cv::merge(channels, fin_img);
             vec.push_back(fin_img);
-            label.ATD(0, i) = (double)tplabel;
+            label.at<double>(0, i) = (double)tplabel;
         }
     }
     else{
